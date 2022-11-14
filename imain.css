@@ -1,0 +1,482 @@
+body{
+background: rgb(105, 105, 105);
+height: auto;
+width: 1300px;
+}
+
+*,*::before,*::after{
+  padding: 0 ; 
+  margin: 0 auto;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+}
+  
+.container{
+ display: flex;
+  transform: translate(0,31px);
+}
+
+.logo{
+  
+  align-items: center;
+  display: flex;  
+
+  transform: translate(-250px);
+}
+
+
+.menu__list{
+  display: flex;
+  transform: translate(-10px, 10px);
+}
+
+
+
+
+.menu__list-link{
+  font-family: sans-serif;
+  font-size: 17px;
+  font-weight: bolder;
+
+  text-decoration: none;
+  list-style-type: none;
+
+  color: #fff;
+  
+
+  margin: 40px;
+
+  position: relative;
+}
+
+
+
+.menu__list-link::after{
+  content: "";
+  position: absolute;
+
+  left: 0;
+  bottom: -4px;
+
+  width: 0%;
+  height: 2px;
+
+  background: rgb(38, 0, 255);
+
+  transition: all 0.4s;
+}
+
+.menu__list-link:hover::after{
+  width: 100%;
+}
+
+.menu__down{
+ background-color: transparent;
+ transition: all 0.4s;
+}
+
+.menu__dropdown{
+  position: absolute;
+
+  transform: translate(46px);
+
+  list-style-type: none;
+  line-height: 26px;
+  
+  visibility: hidden;
+  opacity: 0;
+
+  transition: all 0.4s; 
+}
+
+
+.menu__list-item:hover .menu__dropdown{
+  visibility: visible;
+  opacity: 1;
+}
+
+
+.menu__list-item:hover .menu__down{
+  transform: rotate(180deg);
+}
+
+.menu__dropdown-link{
+  font-family: sans-serif;
+  font-size: 17px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+
+  text-decoration: none;
+  list-style-type: none;
+
+  color: rgb(255, 255, 255);
+
+  position: relative;
+
+  
+
+  transition: all 0.4s;  
+
+ 
+}
+
+
+.menu__dropdown-link::after{
+  content: "";
+  position: absolute;
+
+  left: 0;
+  bottom: -3px;
+
+  width: 0%;
+  height: 1px;
+
+  background: rgb(0, 183, 255);
+
+  transition: all 0.4s;
+}
+
+.menu__dropdown-link:hover::after{
+  width: 100%;
+}
+
+
+
+    /***************************************  header  **************************/
+    
+    
+    .header__button{
+      
+      transform: translate(140px);
+ 
+       background-color: rgb(0, 128, 0);
+       border-radius: 10px ;
+       border: 1px solid rgb(0, 128, 0);
+       
+     
+       height: 35px;
+       padding: 6px 30px;
+     
+       transition: all 0.4s;
+     }
+     
+     .header__button:hover{
+       background-color:transparent;
+       border: 1px solid rgb(0, 128, 0);
+     }
+     
+     .header__button-link{
+       font-family: sans-serif;
+       font-size: 20px;
+       font-weight: bolder;
+     
+       text-decoration: none;
+       list-style-type: none;
+     
+       color: #fff;
+     }
+     
+/*burger*/
+
+.header__burger{
+  display: none;
+
+  position: relative;
+
+  height: 30px;
+  width: 30px;
+
+  
+
+}
+.header__burger-item{
+display: block;
+
+height: 3px;
+width: 100%;
+
+background-color: #fff;
+
+position: absolute;
+
+transition: all 1s;
+
+cursor: pointer;
+}
+
+.header__burger-item:nth-child(1){
+  top: 0;
+  transform-origin: left top;
+  
+}
+
+.header__burger-item:nth-child(2){
+  top: 45%;
+  transform-origin: left bottom;
+}
+
+.header__burger-item:nth-child(3){
+  bottom: 0;
+}
+
+.header__burger.active .header__burger-item:nth-child(1){
+  transform: rotate(45deg) translate3d(9px,3px,0);
+}
+
+.header__burger.active .header__burger-item:nth-child(2){
+  opacity: 0;
+}
+
+.header__burger.active .header__burger-item:nth-child(3){
+  transform: rotate(-45deg)translate3d(5px,-8px,0);
+}
+
+/*responsive*/
+
+@media(max-width:1240px)
+{
+  .menu__list-link{
+   margin: 30px;
+  }
+  .header__button{
+    
+    transform: translate(-40px);
+    
+   }
+   .logo{
+    transform: translate(40px);
+   }
+   body{
+    
+    width: 1240px;
+    }
+}
+
+@media(max-width:1185px)
+{
+  .menu__list-link{
+   margin: 30px;
+  }
+ 
+
+  .header__button{
+    
+    transform: translate(-40px);
+    
+   }
+   .logo{
+    transform: translate(70px);
+   }
+
+   .menu__dropdown-link{
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.2px;
+
+  }
+   .container{
+   
+     transform: translate(0,11px);
+   }
+   .header__button{  
+    height: 30px;
+    padding: 4px 25px; 
+    transform: translate(-75px,6px);
+  }
+  .menu__list-link{ 
+    font-size: 15px;
+    font-weight: bold; 
+  }
+  
+  .header__button-link{
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+}
+
+@media(max-width:1000px){
+   
+  .header__burger{
+    display: block;
+  }
+  
+  .menu{
+    display: none;
+  }
+  .header__button-link{
+    display: none;
+  }
+  .header__button{
+    display: none;
+  }
+  
+}
+
+/*text*/
+
+.square{
+  background-color: #fff;
+  width: 80%;
+  height: 100%;
+
+  margin-top: 50px;
+
+}
+
+.thum{
+  display: flex;
+ 
+
+}
+
+.chps{
+  
+  transform: translate(-450px,80px);
+  
+}
+
+.chps1{
+  height: 180px;
+  width: 300px;
+  transform: translate(-350px,120px);
+}
+
+.chps1:hover{
+  border: 4px solid black;
+  transition: all 0.1s;
+}
+
+.pirveli{
+  font-family: sans-serif;
+  color: #fff;
+  list-style: none;
+  text-decoration: none;
+ 
+  transform: translate(-330px,125px);
+}
+
+
+.pirveli::after{
+  content: "";
+  position: absolute;
+
+  left: 0;
+  bottom: -3px;
+
+  width: 0%;
+  height: 2px;
+
+  background: rgb(0, 183, 255);
+
+  transition: all 0.4s;
+}
+
+.pirveli:hover::after{
+  width: 85%;
+}
+
+
+.chps2{
+  height: 180px;
+  width: 300px;
+  transform: translate(210px,-105px);
+}
+
+.pirveli2{
+  font-family: sans-serif;
+  color: #fff;
+  list-style: none;
+  text-decoration: none;
+ 
+  transform: translate(250px,-105px);
+}
+
+
+.pirveli2::after{
+  content: "";
+  position: absolute;
+
+  left: 0;
+  bottom: -3px;
+
+  width: 0%;
+  height: 2px;
+
+  background: rgb(0, 183, 255);
+
+  transition: all 0.4s;
+}
+
+.pirveli2:hover::after{
+  width: 70%;
+}
+
+
+
+
+.chps2:hover{
+  border: 4px solid black;
+  transition: all 0.1s;
+}
+
+.chps3{
+  height: 180px;
+  width: 300px;
+  transform: translate(850px,-334px);
+}
+
+.pirveli3{
+  font-family: sans-serif;
+  color: #fff;
+  list-style: none;
+  text-decoration: none;
+ 
+  transform: translate(897px,-334px);
+
+  transition: all 0.1s;
+}
+
+
+.chps3:hover{
+  border: 4px solid black;
+  
+}
+
+
+.pirveli3::after{
+  content: "";
+  position: absolute;
+
+  left: 0;
+  bottom: -3px;
+
+  width: 0%;
+  height: 2px;
+
+  background: rgb(0, 183, 255);
+
+  transition: all 0.4s;
+}
+
+.pirveli3:hover::after{
+  width: 70%;
+}
+
+
+
+/*ukan svla*/
+
+.ukan{
+  height: 70px;
+  width: 70px;
+
+  transform: translate(-250px,20px);
+
+  transition: all 0.2s;
+}
+
+.ukan:hover {
+  transform: translate(-252px,17px);
+}
